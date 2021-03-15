@@ -1,10 +1,14 @@
 version: 1.0
 provider:
   name: openfaas
-  gateway: http://127.0.0.1:8080
+  gateway: https://gateway.mydomain.io
 functions:
   minio-notification-webhook:
     lang: golang-http
     handler: ./minio-notification-webhook
-    image: minio-notification-webhook:latest
-
+    image: openfaas/minio-notification-webhook:latest
+    build_args:
+      GO111MODULE: on
+    environment:
+      MINIO_DEBUG: false
+      MINIO_LOGLEVEL: info
