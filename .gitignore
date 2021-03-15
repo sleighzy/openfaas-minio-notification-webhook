@@ -1,0 +1,8 @@
+.DS_Store
+
+template/
+build/
+vendor/
+
+template
+build
